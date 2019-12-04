@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = Resource.RoleManagement;
+    ViewBag.SubTitle = "សម្រាប់កំណត់សិទ្ធក្នុងការប្រើប្រាស់ប្រព័ន្ធ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Active = 11;
+}
+
+<div class="">
+    <div class="table-wrapper mt-5">
+        <div class="box box-primary">
+            <div class="box-header">
+                <a href="@Url.Action("Create", "Role")" class="btn btn-primary float-right"><i class="fa fa-fw fa-plus-circle"></i> @Resource.AddNew</a>
+                <h3 class="box-title">តារាង តួនាទីប្រើប្រាស់ប្រព័ន្ទ</h3>
+            </div>
+
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="tblRoleList" class="table table-bordered table-striped table-responsive">
+                    <thead class="text-center">
+                        <tr class="text-center">
+                            <th>@Resource.N_o</th>
+                            <th>@Resource.Name</th>
+                            <th>@Resource.Description</th>
+                            <th>@Resource.Status</th>
+                            <th>@Resource.Option</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="text-center">
+                        @{
+                            if (ViewBag.List != null)
+                            {
+                                int count = 1;
+                                foreach (var i in (ViewBag.List as IEnumerable<MyApp.Entity.tb_Role_Permission>))
+                                {
+                                    <tr>
+                                        <td>@(count++)</td>
+                                        <td>@i.ROLE_NAME</td>
+                                        <td>@i.DESCRIPTION</td>
+                                        <td><span class="label label-success">ដំណើការ</span></td>
+                                        <td>
+                                            <a class="btn btn-xs btn-primary">
+                                                <i class="fa fa-edit"></i> @Resource.Edit
+                                            </a>
+                                            <a class="btn btn-xs btn-info">
+                                                <i class="fa fa-info-circle"></i> @Resource.Detail
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+
+    </div>
+</div>
+
+
+@section scripts{
+
+    <script type="text/javascript">
+        $('#tblRoleList').DataTable()
+
+
+        $('#btnSubmit').on('click', function (e) {
+            e.preventDefault();
+            var form = $('form[name=frmAddRole]').serialize();
+            if ($('form[name=frmAddRole]').valid()) {
+                alert(23423);
+            }
+        });
+    </script>
+
+}

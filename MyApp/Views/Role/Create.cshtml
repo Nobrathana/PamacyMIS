@@ -1,0 +1,139 @@
+﻿@model MyApp.Models.RoleViewModels
+@using MyApp.Functions
+
+@{
+    ViewBag.Title = Resource.CreateNewRole;
+    ViewBag.SubTitle = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Active = 11;
+}
+
+@section styles{
+    
+    <style>
+        .table-borderless tr, td{
+            border: none!important;
+        }
+    </style>
+    
+    }
+
+<div class="box box-primary" id="test">
+    <form role="form" action="@Url.Action("Create", "Role")" method="post" >
+        @Html.AntiForgeryToken()
+        <div class="box-header with-border">
+            <h3 class="box-title">@Resource.InputRoleInformation</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+
+        <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <div class="box-body">
+                    <div class="form-group">
+                        <label>@Resource.Name</label> 
+                        @Html.ValidationMessageFor(m => m.name, "", new { @class = "text-danger float-right" })
+                        @Html.TextBoxFor(m => m.name, new { @class = "form-control", @placeholder = @Resource.Name })
+                    </div>
+                    <div class="form-group">
+                        <label>@Resource.Description</label>
+                        @Html.TextAreaFor(m => m.description, new { @class = "form-control", @placeholder = Resource.Description, @rows = 4 }) 
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-5">
+                <div class="box-body">
+                    <label>@Resource.AssignPermission @Resource.Role</label>
+                    <div class="form-group">
+                        <table class="table">
+                            <tr>
+                                <td>@Resource.Module</td>
+                                <td>@Resource.Create</td>
+                                <td>@Resource.Edit</td>
+                                <td>@Resource.Delete</td>
+                            </tr>
+                            @{ 
+                                foreach(var i in Functions.getRoleMasterList())
+                                {
+                                    <tr>
+                                        <td>
+                                            <label>
+                                                <input type="checkbox" class="minimal master" name="roles" value="@i.ROLENAME" /> @i.ROLE_LABEL
+                                            </label>
+                                        </td>
+                                        @{
+                                            if (i.SUB_ROLES.Count() > 0)
+                                            {
+                                                foreach (var x in i.SUB_ROLES)
+                                                {
+                                                    <td>
+                                                        <input type="checkbox" class="minimal" name="roles" value="@x" disabled />
+                                                    </td>
+                                                }
+                                            }
+                                        }
+                                    </tr>
+                                }
+                            }
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="box-body with-border">
+            <button type="submit" class="btn btn-primary ml-4">@Resource.Create</button>
+            <a class="btn btn-danger" href="javascript:history.back()">@Resource.Cancel</a>
+        </div>
+        <br />
+    </form>
+</div>
+
+
+@section scripts{
+    
+    <script type="text/javascript">
+
+
+        //$("#test").LoadingOverlay("show", {
+        //    imageAutoResize: true,
+        //    size: 10
+        //});
+
+        //setTimeout(function () {
+        //    $("#test").LoadingOverlay("hide");
+        //}, 3000);
+
+        $(document).ready(function () {
+            $('input').on('ifChecked', function (event) {
+                if ($(this).hasClass('master')) {
+                    var children = $(this).closest('tr')[0];
+                    var tr_child = $(children).children();
+                    for (var i = 1; i < tr_child.length; i++) {
+                        var ICheck = $(tr_child[i]).find('input[type=checkbox]')[0];
+                        $(ICheck).iCheck('enable');
+                    }
+
+                }
+            });
+
+            $('input').on('ifUnchecked', function (event) {
+                if ($(this).hasClass('master')) {
+                    var children = $(this).closest('tr')[0];
+                    var tr_child = $(children).children();
+                    for (var i = 1; i < tr_child.length; i++) {
+                        var ICheck = $(tr_child[i]).find('input[type=checkbox]')[0];
+
+                        $(ICheck).iCheck('uncheck').iCheck('disable');
+                    }
+
+                }
+            });
+        });
+
+    </script>
+    
+    }
+
+

@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewBag.Title</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link href="~/assets/css/please-wait.css" rel="stylesheet" />
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/assets/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="~/assets/css/AdminLTE.min.css" rel="stylesheet" />
+    <link href="~/assets/css/skin-blue.min.css" rel="stylesheet" />
+    <link href="~/assets/plugins/iCheck/flat/blue.css" rel="stylesheet" />
+    <link href="~/assets/plugins/SweetAlert2/sweetalert2.min.css" rel="stylesheet" />
+
+    @*<link href="~/assets/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" />*@
+    <link href="~/Content/SiteCss/Main.css" rel="stylesheet" />
+    @RenderSection("styles", required: false)
+
+    <!--[if lt IE 9]>
+    <script src="~/assets/js/html5shiv.min.js"></script>
+    <script src="~/assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<!-- ADD THE CLASS fixed TO GET A FIXED HEADER AND SIDEBAR LAYOUT -->
+<!-- the fixed layout is not compatible with sidebar-mini -->
+<body class="hold-transition skin-blue fixed sidebar-mini">
+  
+            <section class="content">
+
+                @RenderBody()
+            </section>
+            <!-- /.content -->
+       
+      
+    <!-- ./wrapper -->
+    <script src="~/assets/js/please-wait.min.js"></script>
+    <script src="~/assets/js/modernizr.js"></script>
+
+    <script src="~/assets/js/jquery.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+
+    <script src="~/assets/js/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    <script src="~/Scripts/loadingoverlay.min.js"></script>
+    <script src="~/assets/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="~/assets/plugins/fastclick/fastclick.min.js"></script>
+    <script src="~/assets/js/app.min.js"></script>
+    <script src="~/assets/js/demo.js"></script>
+    <script src="~/assets/js/AdminLTE.js"></script>
+    <script src="~/assets/plugins/iCheck/icheck.min.js"></script>
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

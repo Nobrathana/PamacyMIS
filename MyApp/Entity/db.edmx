@@ -1,0 +1,939 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MADBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="IS_MASTER_ROLE" Type="bit" />
+          <Property Name="PARENTS_KEY" Type="varchar" MaxLength="20" />
+          <Property Name="ORDER_NUM" Type="int" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_Account">
+          <Key>
+            <PropertyRef Name="REG_ID" />
+          </Key>
+          <Property Name="REG_ID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="ACCOUNT_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ACC_TYPE" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_Brand">
+          <Key>
+            <PropertyRef Name="BRD_ID" />
+          </Key>
+          <Property Name="BRD_ID" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="BRD_CODE" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="BRD_NAME" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bit" />
+        </EntityType>
+        <EntityType Name="tb_Category">
+          <Key>
+            <PropertyRef Name="CAT_ID" />
+          </Key>
+          <Property Name="CAT_ID" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="CAT_CODE" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CAT_NAME" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bit" />
+        </EntityType>
+        <EntityType Name="tb_File">
+          <Key>
+            <PropertyRef Name="FILE_ID" />
+            <PropertyRef Name="ITEM_ID" />
+          </Key>
+          <Property Name="FILE_ID" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="ITEM_ID" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="FILE_TYPE" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FILE_NAME" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FILE_EXTENSION" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="FILE_PATH" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_LblCaption">
+          <Key>
+            <PropertyRef Name="LB_NO" />
+            <PropertyRef Name="LANGUAGE_CODE" />
+          </Key>
+          <Property Name="LB_NO" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="LB_CAPTION" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LB_ORDER" Type="int" />
+          <Property Name="LANGUAGE_CODE" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="STATUS" Type="bit" />
+          <Property Name="APP" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tb_Menu">
+          <Key>
+            <PropertyRef Name="MENU_ID" />
+          </Key>
+          <Property Name="MENU_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MENU_CAPTION" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MENU_PARENTS_KEY" Type="int" />
+          <Property Name="MENU_ORDER" Type="int" />
+          <Property Name="ACTION" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bit" />
+          <Property Name="LANGUAGE_CODE" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tb_Product">
+          <Key>
+            <PropertyRef Name="PRO_ID" />
+          </Key>
+          <Property Name="PRO_ID" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="PRO_CODE" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PRO_NAME" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PRO_PRICE" Type="money" />
+          <Property Name="DESCRIPTION" Type="nvarchar(max)" />
+          <Property Name="BRD_ID" Type="varchar" MaxLength="128" />
+          <Property Name="CAT_ID" Type="varchar" MaxLength="128" />
+          <Property Name="CREATE_BY" Type="nvarchar" MaxLength="128" />
+          <Property Name="CREATE_AT" Type="datetime" />
+          <Property Name="STATUS" Type="bit" />
+        </EntityType>
+        <EntityType Name="tb_Register">
+          <Key>
+            <PropertyRef Name="REG_ID" />
+          </Key>
+          <Property Name="REG_ID" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="FIRST_NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LAST_NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="GENDER" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="PHONE_NUMBER" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="ADDRESS" Type="nvarchar(max)" />
+          <Property Name="IS_REGISTERED" Type="bit" />
+        </EntityType>
+        <EntityType Name="tb_ResponeMessage">
+          <Key>
+            <PropertyRef Name="RM_ID" />
+            <PropertyRef Name="LANGUAGE_CODE" />
+          </Key>
+          <Property Name="RM_ID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="RM_MESSAGE" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LB_ORDER" Type="int" />
+          <Property Name="LANGUAGE_CODE" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="STATUS" Type="bit" />
+          <Property Name="APP" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tb_Role_Permission">
+          <Key>
+            <PropertyRef Name="RP_ID" />
+          </Key>
+          <Property Name="RP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ROLE_NAME" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bit" />
+        </EntityType>
+        <EntityType Name="tb_Role_Prsn_Detail">
+          <Key>
+            <PropertyRef Name="RA_ID" />
+          </Key>
+          <Property Name="RA_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RP_ID" Type="int" Nullable="false" />
+          <Property Name="ROLE_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_User">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="USER_CODE" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="USER_NAME" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FIRST_NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LAST_NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="GENDER" Type="varchar" MaxLength="10" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="PHONE_NUMBER" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="ADDRESS" Type="nvarchar(max)" />
+          <Property Name="STATUS" Type="bit" />
+          <Property Name="IS_FIRST_LOG" Type="bit" />
+          <Property Name="ROLE_ID" Type="int" />
+          <Property Name="CREATE_AT" Type="datetime" />
+          <Property Name="CREATE_BY" Type="nvarchar" MaxLength="255" />
+          <Property Name="PWD" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="BRD_FK">
+          <End Role="tb_Brand" Type="Self.tb_Brand" Multiplicity="0..1" />
+          <End Role="tb_Product" Type="Self.tb_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Brand">
+              <PropertyRef Name="BRD_ID" />
+            </Principal>
+            <Dependent Role="tb_Product">
+              <PropertyRef Name="BRD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CAT_FK">
+          <End Role="tb_Category" Type="Self.tb_Category" Multiplicity="0..1" />
+          <End Role="tb_Product" Type="Self.tb_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Category">
+              <PropertyRef Name="CAT_ID" />
+            </Principal>
+            <Dependent Role="tb_Product">
+              <PropertyRef Name="CAT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RP_FK">
+          <End Role="tb_Role_Permission" Type="Self.tb_Role_Permission" Multiplicity="1" />
+          <End Role="tb_Role_Prsn_Detail" Type="Self.tb_Role_Prsn_Detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Role_Permission">
+              <PropertyRef Name="RP_ID" />
+            </Principal>
+            <Dependent Role="tb_Role_Prsn_Detail">
+              <PropertyRef Name="RP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="pm_AppFirstLog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="USERID" Type="nvarchar" Mode="In" />
+          <Parameter Name="NEW_PWD" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pm_GetMessage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="msg_id" Type="varchar" Mode="In" />
+          <Parameter Name="lang_code" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="pm_InitData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="pm_MigrateTbl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="MADBModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Account" EntityType="Self.tb_Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Brand" EntityType="Self.tb_Brand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Category" EntityType="Self.tb_Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_File" EntityType="Self.tb_File" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_LblCaption" EntityType="Self.tb_LblCaption" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Menu" EntityType="Self.tb_Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Product" EntityType="Self.tb_Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Register" EntityType="Self.tb_Register" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_ResponeMessage" EntityType="Self.tb_ResponeMessage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Role_Permission" EntityType="Self.tb_Role_Permission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Role_Prsn_Detail" EntityType="Self.tb_Role_Prsn_Detail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_User" EntityType="Self.tb_User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="BRD_FK" Association="Self.BRD_FK">
+            <End Role="tb_Brand" EntitySet="tb_Brand" />
+            <End Role="tb_Product" EntitySet="tb_Product" />
+          </AssociationSet>
+          <AssociationSet Name="CAT_FK" Association="Self.CAT_FK">
+            <End Role="tb_Category" EntitySet="tb_Category" />
+            <End Role="tb_Product" EntitySet="tb_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="RP_FK" Association="Self.RP_FK">
+            <End Role="tb_Role_Permission" EntitySet="tb_Role_Permission" />
+            <End Role="tb_Role_Prsn_Detail" EntitySet="tb_Role_Prsn_Detail" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MADBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+          <Property Name="IS_MASTER_ROLE" Type="Boolean" />
+          <Property Name="PARENTS_KEY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ORDER_NUM" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="tb_Account">
+          <Key>
+            <PropertyRef Name="REG_ID" />
+          </Key>
+          <Property Name="REG_ID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ACCOUNT_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ACC_TYPE" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_Menu">
+          <Key>
+            <PropertyRef Name="MENU_ID" />
+          </Key>
+          <Property Name="MENU_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MENU_CAPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MENU_PARENTS_KEY" Type="Int32" />
+          <Property Name="MENU_ORDER" Type="Int32" />
+          <Property Name="ACTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Boolean" />
+          <Property Name="LANGUAGE_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tb_Register">
+          <Key>
+            <PropertyRef Name="REG_ID" />
+          </Key>
+          <Property Name="REG_ID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GENDER" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PHONE_NUMBER" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IS_REGISTERED" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tb_Role_Permission">
+          <Key>
+            <PropertyRef Name="RP_ID" />
+          </Key>
+          <Property Name="RP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ROLE_NAME" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Boolean" />
+          <NavigationProperty Name="tb_Role_Prsn_Detail" Relationship="MADBModel.RP_FK" FromRole="tb_Role_Permission" ToRole="tb_Role_Prsn_Detail" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="MADBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="tb_Account" EntityType="Self.tb_Account" />
+          <EntitySet Name="tb_Menu" EntityType="Self.tb_Menu" />
+          <EntitySet Name="tb_Register" EntityType="Self.tb_Register" />
+          <EntitySet Name="tb_Role_Permission" EntityType="Self.tb_Role_Permission" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <EntitySet Name="tb_Role_Prsn_Detail" EntityType="MADBModel.tb_Role_Prsn_Detail" />
+          <AssociationSet Name="RP_FK" Association="MADBModel.RP_FK">
+            <End Role="tb_Role_Permission" EntitySet="tb_Role_Permission" />
+            <End Role="tb_Role_Prsn_Detail" EntitySet="tb_Role_Prsn_Detail" />
+          </AssociationSet>
+          <EntitySet Name="tb_LblCaption" EntityType="MADBModel.tb_LblCaption" />
+          <EntitySet Name="tb_User" EntityType="MADBModel.tb_User" />
+          <EntitySet Name="tb_ResponeMessage" EntityType="MADBModel.tb_ResponeMessage" />
+          <FunctionImport Name="pm_GetMessage" ReturnType="Collection(String)">
+            <Parameter Name="msg_id" Mode="In" Type="String" />
+            <Parameter Name="lang_code" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pm_AppFirstLog">
+            <Parameter Name="USERID" Mode="In" Type="String" />
+            <Parameter Name="NEW_PWD" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="tb_Brand" EntityType="MADBModel.tb_Brand" />
+          <EntitySet Name="tb_Category" EntityType="MADBModel.tb_Category" />
+          <EntitySet Name="tb_Product" EntityType="MADBModel.tb_Product" />
+          <AssociationSet Name="BRD_FK" Association="MADBModel.BRD_FK">
+            <End Role="tb_Brand" EntitySet="tb_Brand" />
+            <End Role="tb_Product" EntitySet="tb_Product" />
+          </AssociationSet>
+          <AssociationSet Name="CAT_FK" Association="MADBModel.CAT_FK">
+            <End Role="tb_Category" EntitySet="tb_Category" />
+            <End Role="tb_Product" EntitySet="tb_Product" />
+          </AssociationSet>
+          <EntitySet Name="tb_File" EntityType="MADBModel.tb_File" />
+        </EntityContainer>
+        <EntityType Name="tb_Role_Prsn_Detail">
+          <Key>
+            <PropertyRef Name="RA_ID" />
+          </Key>
+          <Property Name="RA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RP_ID" Type="Int32" Nullable="false" />
+          <Property Name="ROLE_NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_Role_Permission" Relationship="MADBModel.RP_FK" FromRole="tb_Role_Prsn_Detail" ToRole="tb_Role_Permission" />
+        </EntityType>
+        <Association Name="RP_FK">
+          <End Type="MADBModel.tb_Role_Permission" Role="tb_Role_Permission" Multiplicity="1" />
+          <End Type="MADBModel.tb_Role_Prsn_Detail" Role="tb_Role_Prsn_Detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Role_Permission">
+              <PropertyRef Name="RP_ID" />
+            </Principal>
+            <Dependent Role="tb_Role_Prsn_Detail">
+              <PropertyRef Name="RP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tb_LblCaption">
+          <Key>
+            <PropertyRef Name="LB_NO" />
+            <PropertyRef Name="LANGUAGE_CODE" />
+          </Key>
+          <Property Name="LB_NO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LB_CAPTION" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LB_ORDER" Type="Int32" />
+          <Property Name="LANGUAGE_CODE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="Boolean" />
+          <Property Name="APP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tb_User">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="USER_CODE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="USER_NAME" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FIRST_NAME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LAST_NAME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GENDER" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="PHONE_NUMBER" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Boolean" />
+          <Property Name="IS_FIRST_LOG" Type="Boolean" />
+          <Property Name="ROLE_ID" Type="Int32" />
+          <Property Name="CREATE_AT" Type="DateTime" Precision="3" />
+          <Property Name="CREATE_BY" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PWD" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_ResponeMessage">
+          <Key>
+            <PropertyRef Name="RM_ID" />
+            <PropertyRef Name="LANGUAGE_CODE" />
+          </Key>
+          <Property Name="RM_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="RM_MESSAGE" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LB_ORDER" Type="Int32" />
+          <Property Name="LANGUAGE_CODE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="Boolean" />
+          <Property Name="APP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tb_Brand">
+          <Key>
+            <PropertyRef Name="BRD_ID" />
+          </Key>
+          <Property Name="BRD_ID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="BRD_CODE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BRD_NAME" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Boolean" />
+          <NavigationProperty Name="tb_Product" Relationship="MADBModel.BRD_FK" FromRole="tb_Brand" ToRole="tb_Product" />
+        </EntityType>
+        <EntityType Name="tb_Category">
+          <Key>
+            <PropertyRef Name="CAT_ID" />
+          </Key>
+          <Property Name="CAT_ID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="CAT_CODE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CAT_NAME" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Boolean" />
+          <NavigationProperty Name="tb_Product" Relationship="MADBModel.CAT_FK" FromRole="tb_Category" ToRole="tb_Product" />
+        </EntityType>
+        <EntityType Name="tb_Product">
+          <Key>
+            <PropertyRef Name="PRO_ID" />
+          </Key>
+          <Property Name="PRO_ID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="PRO_CODE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PRO_NAME" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PRO_PRICE" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BRD_ID" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="CAT_ID" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="CREATE_BY" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CREATE_AT" Type="DateTime" Precision="3" />
+          <Property Name="STATUS" Type="Boolean" />
+          <NavigationProperty Name="tb_Brand" Relationship="MADBModel.BRD_FK" FromRole="tb_Product" ToRole="tb_Brand" />
+          <NavigationProperty Name="tb_Category" Relationship="MADBModel.CAT_FK" FromRole="tb_Product" ToRole="tb_Category" />
+        </EntityType>
+        <Association Name="BRD_FK">
+          <End Type="MADBModel.tb_Brand" Role="tb_Brand" Multiplicity="0..1" />
+          <End Type="MADBModel.tb_Product" Role="tb_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Brand">
+              <PropertyRef Name="BRD_ID" />
+            </Principal>
+            <Dependent Role="tb_Product">
+              <PropertyRef Name="BRD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CAT_FK">
+          <End Type="MADBModel.tb_Category" Role="tb_Category" Multiplicity="0..1" />
+          <End Type="MADBModel.tb_Product" Role="tb_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Category">
+              <PropertyRef Name="CAT_ID" />
+            </Principal>
+            <Dependent Role="tb_Product">
+              <PropertyRef Name="CAT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tb_File">
+          <Key>
+            <PropertyRef Name="FILE_ID" />
+            <PropertyRef Name="ITEM_ID" />
+          </Key>
+          <Property Name="FILE_ID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ITEM_ID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="FILE_TYPE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FILE_NAME" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FILE_EXTENSION" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FILE_PATH" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MADBModelStoreContainer" CdmEntityContainer="MADBEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="MADBModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="MADBModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="ORDER_NUM" ColumnName="ORDER_NUM" />
+                <ScalarProperty Name="PARENTS_KEY" ColumnName="PARENTS_KEY" />
+                <ScalarProperty Name="IS_MASTER_ROLE" ColumnName="IS_MASTER_ROLE" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="MADBModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="MADBModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="MADBModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Account">
+            <EntityTypeMapping TypeName="MADBModel.tb_Account">
+              <MappingFragment StoreEntitySet="tb_Account">
+                <ScalarProperty Name="REG_ID" ColumnName="REG_ID" />
+                <ScalarProperty Name="ACCOUNT_ID" ColumnName="ACCOUNT_ID" />
+                <ScalarProperty Name="ACC_TYPE" ColumnName="ACC_TYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Menu">
+            <EntityTypeMapping TypeName="MADBModel.tb_Menu">
+              <MappingFragment StoreEntitySet="tb_Menu">
+                <ScalarProperty Name="LANGUAGE_CODE" ColumnName="LANGUAGE_CODE" />
+                <ScalarProperty Name="MENU_ID" ColumnName="MENU_ID" />
+                <ScalarProperty Name="MENU_CAPTION" ColumnName="MENU_CAPTION" />
+                <ScalarProperty Name="MENU_PARENTS_KEY" ColumnName="MENU_PARENTS_KEY" />
+                <ScalarProperty Name="MENU_ORDER" ColumnName="MENU_ORDER" />
+                <ScalarProperty Name="ACTION" ColumnName="ACTION" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Register">
+            <EntityTypeMapping TypeName="MADBModel.tb_Register">
+              <MappingFragment StoreEntitySet="tb_Register">
+                <ScalarProperty Name="REG_ID" ColumnName="REG_ID" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+                <ScalarProperty Name="PHONE_NUMBER" ColumnName="PHONE_NUMBER" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="IS_REGISTERED" ColumnName="IS_REGISTERED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Role_Permission">
+            <EntityTypeMapping TypeName="MADBModel.tb_Role_Permission">
+              <MappingFragment StoreEntitySet="tb_Role_Permission">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="RP_ID" ColumnName="RP_ID" />
+                <ScalarProperty Name="ROLE_NAME" ColumnName="ROLE_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="MADBModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="tb_Role_Prsn_Detail">
+            <EntityTypeMapping TypeName="MADBModel.tb_Role_Prsn_Detail">
+              <MappingFragment StoreEntitySet="tb_Role_Prsn_Detail">
+                <ScalarProperty Name="ROLE_NAME" ColumnName="ROLE_NAME" />
+                <ScalarProperty Name="RP_ID" ColumnName="RP_ID" />
+                <ScalarProperty Name="RA_ID" ColumnName="RA_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_LblCaption">
+            <EntityTypeMapping TypeName="MADBModel.tb_LblCaption">
+              <MappingFragment StoreEntitySet="tb_LblCaption">
+                <ScalarProperty Name="APP" ColumnName="APP" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="LANGUAGE_CODE" ColumnName="LANGUAGE_CODE" />
+                <ScalarProperty Name="LB_ORDER" ColumnName="LB_ORDER" />
+                <ScalarProperty Name="LB_CAPTION" ColumnName="LB_CAPTION" />
+                <ScalarProperty Name="LB_NO" ColumnName="LB_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_User">
+            <EntityTypeMapping TypeName="MADBModel.tb_User">
+              <MappingFragment StoreEntitySet="tb_User">
+                <ScalarProperty Name="PWD" ColumnName="PWD" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="CREATE_AT" ColumnName="CREATE_AT" />
+                <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
+                <ScalarProperty Name="IS_FIRST_LOG" ColumnName="IS_FIRST_LOG" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="PHONE_NUMBER" ColumnName="PHONE_NUMBER" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_ResponeMessage">
+            <EntityTypeMapping TypeName="MADBModel.tb_ResponeMessage">
+              <MappingFragment StoreEntitySet="tb_ResponeMessage">
+                <ScalarProperty Name="APP" ColumnName="APP" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="LANGUAGE_CODE" ColumnName="LANGUAGE_CODE" />
+                <ScalarProperty Name="LB_ORDER" ColumnName="LB_ORDER" />
+                <ScalarProperty Name="RM_MESSAGE" ColumnName="RM_MESSAGE" />
+                <ScalarProperty Name="RM_ID" ColumnName="RM_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="pm_GetMessage" FunctionName="MADBModel.Store.pm_GetMessage" />
+          <FunctionImportMapping FunctionImportName="pm_AppFirstLog" FunctionName="MADBModel.Store.pm_AppFirstLog" />
+          <EntitySetMapping Name="tb_Brand">
+            <EntityTypeMapping TypeName="MADBModel.tb_Brand">
+              <MappingFragment StoreEntitySet="tb_Brand">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="BRD_NAME" ColumnName="BRD_NAME" />
+                <ScalarProperty Name="BRD_CODE" ColumnName="BRD_CODE" />
+                <ScalarProperty Name="BRD_ID" ColumnName="BRD_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Category">
+            <EntityTypeMapping TypeName="MADBModel.tb_Category">
+              <MappingFragment StoreEntitySet="tb_Category">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="CAT_NAME" ColumnName="CAT_NAME" />
+                <ScalarProperty Name="CAT_CODE" ColumnName="CAT_CODE" />
+                <ScalarProperty Name="CAT_ID" ColumnName="CAT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Product">
+            <EntityTypeMapping TypeName="MADBModel.tb_Product">
+              <MappingFragment StoreEntitySet="tb_Product">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="CREATE_AT" ColumnName="CREATE_AT" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="CAT_ID" ColumnName="CAT_ID" />
+                <ScalarProperty Name="BRD_ID" ColumnName="BRD_ID" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="PRO_PRICE" ColumnName="PRO_PRICE" />
+                <ScalarProperty Name="PRO_NAME" ColumnName="PRO_NAME" />
+                <ScalarProperty Name="PRO_CODE" ColumnName="PRO_CODE" />
+                <ScalarProperty Name="PRO_ID" ColumnName="PRO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_File">
+            <EntityTypeMapping TypeName="MADBModel.tb_File">
+              <MappingFragment StoreEntitySet="tb_File">
+                <ScalarProperty Name="FILE_PATH" ColumnName="FILE_PATH" />
+                <ScalarProperty Name="FILE_EXTENSION" ColumnName="FILE_EXTENSION" />
+                <ScalarProperty Name="FILE_NAME" ColumnName="FILE_NAME" />
+                <ScalarProperty Name="FILE_TYPE" ColumnName="FILE_TYPE" />
+                <ScalarProperty Name="ITEM_ID" ColumnName="ITEM_ID" />
+                <ScalarProperty Name="FILE_ID" ColumnName="FILE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

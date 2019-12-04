@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = Resource.Product;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Active = 7;
+}
+
+
+<div class="">
+    <div class="table-wrapper mt-5">
+        <div class="box box-primary">
+            <div class="box-header">
+                <h3 class="box-title">@Resource.ProductList</h3>
+                <a href="@Url.Action("Create", "Product")" class="btn btn-primary float-right"><i class="fa fa-fw fa-plus-circle"></i> @Resource.AddNew</a>
+            </div>
+
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="example1" class="table table-bordered table-striped table-responsive">
+                    <thead class="text-center">
+                        <tr class="text-center">
+                            <th>@Resource.Code</th>
+                            <th>@Resource.UserName</th>
+                            <th>@Resource.PhoneNumber</th>
+                            <th>@Resource.Role</th>
+                            <th>@Resource.Option</th>
+                        </tr>
+                    </thead>
+                    @{
+                        if (ViewBag.List != null)
+                        {
+                            foreach (var user in (ViewBag.List as List<MyApp.Services.UserAccountListTemplate>))
+                            {
+                                <tr class="text-center">
+                                    <td>@user.code</td>
+                                    <td>@user.name</td>
+                                    <td>@user.phone_number</td>
+                                    <td>@user.getRoleName()</td>
+                                    <td>
+                                        <a class="btn btn-xs btn-primary">
+                                            <i class="fa fa-edit"></i> @Resource.Edit
+                                        </a>
+                                        <a class="btn btn-xs btn-info">
+                                            <i class="fa fa-info-circle"></i> @Resource.Detail
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    }
+
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+
+    </div>
+</div>
+
+@section scripts{
+
+    <script type="text/javascript">
+
+        $('#example1').DataTable({
+
+        })
+
+    </script>
+
+}

@@ -1,0 +1,146 @@
+﻿@model MyApp.Models.UserViewModels
+
+@{
+    ViewBag.Title = Resource.CreateNewUser;
+    ViewBag.Icon = "<i class='fa fa-user-circle-o'></i>";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Active = 10;
+}
+
+<div class="box box-primary" id="test">
+    <form name="frmUserRegister" role="form" >
+        @Html.AntiForgeryToken()
+        <div class="box-header with-border">
+            <h3 class="box-title">@Resource.InputUserInformation</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+
+        <div class="row">
+            <div class="col-sm-12 col-md-8 col-lg-6">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>@Resource.FirstName</label> 
+                            @Html.ValidationMessageFor(m => m.First_Name, "", new { @class = "text-danger float-right" })
+                            @Html.TextBoxFor(m => m.First_Name, new { @class = "form-control", @placeholder = @Resource.FirstName })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>@Resource.LastName</label>
+                            @Html.ValidationMessageFor(m => m.Last_Name, "", new { @class = "text-danger float-right" })
+                            @Html.TextBoxFor(m => m.Last_Name, new { @class = "form-control", @placeholder = @Resource.LastName })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6 col-sm-6 col-md-3">
+                        <div class="form-group">
+                            <label>@Resource.Gender</label>
+                            @Html.DropDownListFor(m => m.Gender, MyApp.Functions.Functions.getGenderList(), @Resource.Gender, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <label>@Resource.Dob</label>
+                            @Html.TextBoxFor(m => m.DOB, new { @class = "form-control", @placeholder = @Resource.Dob })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>@Resource.PhoneNumber</label>
+                            @Html.ValidationMessageFor(m => m.Phone_Number, "", new { @class = "text-danger float-right" })
+                            @Html.TextBoxFor(m => m.Phone_Number, new { @class = "form-control", @placeholder = Resource.PhoneNumber })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>@Resource.Address</label>
+                            @Html.TextAreaFor(m => m.Address, new { @class = "form-control", @placeholder = Resource.Address, @rows=3 })
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-12 col-lg-6">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>@Resource.UserName</label>
+                            @Html.ValidationMessageFor(m => m.User_Name, "", new { @class = "text-danger float-right" })
+                            @Html.TextBoxFor(m => m.User_Name, new { @class = "form-control", @placeholder = Resource.UserName })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>@Resource.Role</label>
+                            @Html.ValidationMessageFor(m => m.User_Role, "", new { @class = "text-danger float-right" })
+                            @Html.DropDownListFor(m => m.User_Role, MyApp.Functions.Functions.getRoleList(), Resource.Role, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>@Resource.Password</label>
+                            @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @readonly="readonly", @Value= MyApp.Functions.CodeGenerate.FLPassword() })
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="box-body with-border">
+            <button type="submit" class="btn btn-primary ml-4">@Resource.Create</button>
+            <a class="btn btn-danger" href="javascript:history.back()">@Resource.Cancel</a>
+        </div>
+        <br />
+    </form>
+</div>
+
+@section scripts{
+    <script>
+        $('form[name=frmUserRegister]').on('submit', function (e) {
+            e.preventDefault();
+            if ($(this).valid()) {
+                var frmData = $(this).serialize();
+                $.ajax({
+                    url: '@Url.Action("Register", "User")',
+                    data: frmData,
+                    type: 'post',
+                    datatype: 'json',
+                    async: false,
+                    success: function (respones) {
+                        if(respones != null){
+                            swal({
+                                title: respones.header,
+                                text: respones.message,
+                                type: respones.type,
+                                confirmButtonText: "@Resource.OK",
+                                closeOnConfirm: false,
+                            }).then((result) => {
+                                if (result) {
+                                    window.location.href = "@Url.Action("Index", "User")";
+                                }
+                            });
+                        }
+                    }
+                });
+            }
+
+        });
+    </script>
+    
+    }
+

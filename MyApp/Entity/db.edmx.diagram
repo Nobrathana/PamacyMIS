@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="95f7c80417c14025becf6f2bc8895e6d" Name="Diagram1" ZoomLevel="48">
+        <EntityTypeShape EntityType="MADBModel.C__MigrationHistory" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MADBModel.AspNetRole" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MADBModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MADBModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="MADBModel.AspNetUser" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MADBModel.tb_Account" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MADBModel.tb_Menu" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MADBModel.tb_Register" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MADBModel.tb_Role_Permission" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="MADBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="MADBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="MADBModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MADBModel.tb_Role_Prsn_Detail" Width="1.5" PointX="3" PointY="1.125" />
+        <AssociationConnector Association="MADBModel.RP_FK" />
+        <EntityTypeShape EntityType="MADBModel.tb_LblCaption" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="MADBModel.tb_User" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MADBModel.tb_ResponeMessage" Width="1.5" PointX="3.375" PointY="10.75" />
+        <EntityTypeShape EntityType="MADBModel.tb_Brand" Width="1.5" PointX="10.375" PointY="6.625" />
+        <EntityTypeShape EntityType="MADBModel.tb_Category" Width="1.5" PointX="10.375" PointY="9.625" />
+        <EntityTypeShape EntityType="MADBModel.tb_Product" Width="1.5" PointX="12.625" PointY="6" />
+        <AssociationConnector Association="MADBModel.BRD_FK" />
+        <AssociationConnector Association="MADBModel.CAT_FK" />
+        <EntityTypeShape EntityType="MADBModel.tb_File" Width="1.5" PointX="5.375" PointY="10.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

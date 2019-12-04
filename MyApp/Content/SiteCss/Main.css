@@ -1,0 +1,63 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Kantumruy&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand:500&display=swap');
+
+body, html{
+    font-family: 'Kantumruy', 'Quicksand', sans-serif;
+    background: #E8E8E8;
+}
+
+h3, h1, button {
+     font-family: 'Kantumruy', 'Quicksand', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+    margin-top: 1rem!important;
+    margin-bottom: 1rem!important;
+}
+
+form .row{
+    margin: 0.7rem 1rem !important;
+}
+
+hr {
+    margin-bottom: 0px;
+}
+
+/*Table Custom CSS*/
+
+.table-dark {
+    background-color: darkgray!important;
+}
+
+thead, th {text-align: center!important;}
+/*End Table Custom CSS*/
+
+
+/*Input Customized*/
+.input-validation-error{
+    border-color: #d9534f!important;
+}
+
+/*End Input Customized*/
+
+.float-right{
+    float: right!important;
+}
+
+
+.ml-1{
+    margin-left: 1rem;
+}
+
+.ml-2{
+    margin-left: 2rem;
+}
+
+.ml-3{
+    margin-left: 3rem;
+}
+
+
+.ml-4{
+    margin-left: 4rem;
+}

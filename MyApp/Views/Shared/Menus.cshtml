@@ -1,0 +1,116 @@
+﻿<section class="sidebar">
+    <ul class="sidebar-menu">
+        <li class="header uppercase">@MyApp.Functions.AppEnum.LeftMenuHeader</li>
+        <li>
+            <a href="@(Url.Action("Index","Home"))">
+                <i class="fa fa-home fa-fw"></i> <span>@Resource.Home</span>
+            </a>
+        </li>
+       
+
+        <li>
+            <a href="#">
+                <i class="fa fa-book fa-fw"></i> <span>@Resource.Booking</span>
+                <span class="pull-right-container">
+                    <small class="label pull-right bg-green">new</small>
+                </span>
+            </a>
+        </li>
+        <li>
+            <a href="@(Url.Action("","",new{ Area = ""}))">
+                <i class="fa fa-user-secret fa-fw"></i> <span>@Resource.Supplier</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-user fa-fw"></i>
+                <span>@Resource.Customer</span>
+            </a>  
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-newspaper-o fa-fw"></i>
+                <span>@Resource.Report</span>
+            </a>
+        </li>
+
+        <li class="header">MASTER DATA</li>
+        <li>
+            <a href="@Url.Action("Index", "Product")">
+                <i class="fa fa-shopping-bag fa-fw"></i>
+                <span>@Resource.Product</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-handshake-o fa-fw"></i>
+                <span>@Resource.OurService</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-users fa-fw"></i>
+                <span>@Resource.OurStaff</span>
+            </a>
+        </li>
+        
+        <li class="header">USER ACCOUNT</li>
+        <li>
+            <a href="@Url.Action("Index","User")">
+                <i class="fa fa-user-circle-o fa-fw"></i>
+                <span>@Resource.UserAccount</span>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("Index","Role")">
+                <i class="fa fa-user-circle-o fa-fw"></i>
+                <span>@Resource.RoleManagement</span>
+            </a>
+        </li>
+
+        <li class="header">SETTING AND CONFIGURATION</li>
+        <li>
+            <a href="#">
+                <i class="fa fa-wrench fa-fw"></i>
+                <span>@Resource.Setting</span>
+            </a>
+        </li>
+
+        @*<li class="treeview">
+            <a href="#">
+                <i class="fa fa-share"></i> <span>Multilevel</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-circle-o"></i> Level One
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-circle-o"></i> Level Two
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+            </ul>
+        </li>*@
+
+    </ul>
+</section>
