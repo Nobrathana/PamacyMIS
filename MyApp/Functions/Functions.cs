@@ -1,4 +1,5 @@
 ﻿using MyApp.Modules;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,38 @@ namespace MyApp.Functions
     }
     public class Functions
     {
+
+        public static string getUnitJSON()
+        {
+            using (var db = new Entity.MADBEntities())
+            {
+                var list = db.tb_Unit.Select(
+                        x => new SelectListItem
+                        {
+                            Value = x.ID,
+                            Text = x.NAME
+                        }
+                    ).ToList();
+                return JsonConvert.SerializeObject(list);
+            }
+        }
+
+
+        public static List<SelectListItem> getUnitList()
+        {
+            using (var db = new Entity.MADBEntities())
+            {
+                var list = db.tb_Unit.Select(
+                        x => new SelectListItem
+                        {
+                            Value = x.ID,
+                            Text = x.NAME
+                        }
+                    ).ToList();
+                return list;
+            }
+        }
+
         public static List<SelectListItem> getGenderList()
         {
             if(LanguageManager.getCurrentLanguage() == "KH")

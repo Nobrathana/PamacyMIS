@@ -28,6 +28,7 @@
         <AssociationConnector Association="MADBModel.BRD_FK" />
         <AssociationConnector Association="MADBModel.CAT_FK" />
         <EntityTypeShape EntityType="MADBModel.tb_File" Width="1.5" PointX="5.375" PointY="10.75" />
+        <EntityTypeShape EntityType="MADBModel.tb_Unit" Width="1.5" PointX="7.375" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

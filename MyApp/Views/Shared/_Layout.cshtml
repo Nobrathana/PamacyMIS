@@ -7,12 +7,14 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link href="~/assets/css/please-wait.css" rel="stylesheet" />
     <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/select2.min.css" rel="stylesheet" />
     <link href="~/assets/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/assets/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" />
     <link href="~/assets/css/AdminLTE.min.css" rel="stylesheet" />
     <link href="~/assets/css/skin-blue.min.css" rel="stylesheet" />
     <link href="~/assets/plugins/iCheck/flat/blue.css" rel="stylesheet" />
     <link href="~/assets/plugins/SweetAlert2/sweetalert2.min.css" rel="stylesheet" />
+
     
     @*<link href="~/assets/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" />*@
     <link href="~/Content/SiteCss/Main.css" rel="stylesheet" />
@@ -28,25 +30,25 @@
 <body class="hold-transition skin-blue fixed sidebar-mini">
     <!--Splash Screen-->
     @*<script type="text/javascript">
-        function Splash() {
-            var splash = window.pleaseWait({
-                logo: "/assets/img/logo.jpg",
-                backgroundColor: '#3c8dbc',
-                loadingHtml: "<h1 class='loading-message'>Template by Erikson</h1>" +
-                '<div class="sk-folding-cube"><div class="sk-cube1 sk-cube" ></div><div class="sk-cube2 sk-cube"></div><div class="sk-cube4 sk-cube"></div><div class="sk-cube3 sk-cube"></div></div>'
-            });
+            function Splash() {
+                var splash = window.pleaseWait({
+                    logo: "/assets/img/logo.jpg",
+                    backgroundColor: '#3c8dbc',
+                    loadingHtml: "<h1 class='loading-message'>Template by Erikson</h1>" +
+                    '<div class="sk-folding-cube"><div class="sk-cube1 sk-cube" ></div><div class="sk-cube2 sk-cube"></div><div class="sk-cube4 sk-cube"></div><div class="sk-cube3 sk-cube"></div></div>'
+                });
 
-            return splash;
-        }
+                return splash;
+            }
 
-        waiter = Splash();
-        $(document)
-            .ready(function () {
-                setTimeout(function () {
-                    waiter.finish();
-                }, 2000);
-            });
-    </script>*@
+            waiter = Splash();
+            $(document)
+                .ready(function () {
+                    setTimeout(function () {
+                        waiter.finish();
+                    }, 2000);
+                });
+        </script>*@
 
 
 
@@ -56,7 +58,7 @@
             <!-- Logo -->
             <a href="#" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-               @* <span class="logo-mini"><img src="~/Pictures/Mei Mei Logo copy.jpg" class="img-fluid"/></span>*@
+                @* <span class="logo-mini"><img src="~/Pictures/Mei Mei Logo copy.jpg" class="img-fluid"/></span>*@
                 <!-- logo for regular state and mobile devices -->
                 <span class="logo-lg">@MyApp.Functions.AppEnum.SiteName</span>
             </a>
@@ -89,8 +91,8 @@
                     @Html.Raw(ViewBag.Icon) @ViewBag.Title
                     <small>@ViewBag.SubTitle</small>
                 </h1>
-                 
-                
+
+
             </section>
             <section class="content">
 
@@ -119,10 +121,10 @@
     <script src="~/assets/js/bootstrap.min.js"></script>
     <script src="~/assets/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="~/assets/plugins/datatables/dataTables.bootstrap.min.js"></script>
-
+    <script src="~/Scripts/select2.min.js"></script>
     <script src="~/assets/js/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    
+
     <script src="~/Scripts/loadingoverlay.min.js"></script>
     <script src="~/assets/plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <script src="~/assets/plugins/fastclick/fastclick.min.js"></script>
@@ -131,8 +133,16 @@
     <script src="~/assets/js/AdminLTE.js"></script>
     <script src="~/assets/plugins/iCheck/icheck.min.js"></script>
     <script src="~/assets/plugins/SweetAlert2/sweetalert2.min.js"></script>
+
     <script src="~/Scripts/SiteScript.js"></script>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+
+    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/16.8.0/umd/react.development.js"></script>
+    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.8.0/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.7.1/remarkable.min.js"></script>
+
+
     <script>
 
         

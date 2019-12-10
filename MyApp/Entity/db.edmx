@@ -189,6 +189,13 @@
           <Property Name="RP_ID" Type="int" Nullable="false" />
           <Property Name="ROLE_NAME" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="tb_Unit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="tb_User">
           <Key>
             <PropertyRef Name="USER_ID" />
@@ -329,6 +336,7 @@
           <EntitySet Name="tb_ResponeMessage" EntityType="Self.tb_ResponeMessage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Role_Permission" EntityType="Self.tb_Role_Permission" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Role_Prsn_Detail" EntityType="Self.tb_Role_Prsn_Detail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Unit" EntityType="Self.tb_Unit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_User" EntityType="Self.tb_User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="BRD_FK" Association="Self.BRD_FK">
             <End Role="tb_Brand" EntitySet="tb_Brand" />
@@ -549,6 +557,7 @@
             <End Role="tb_Product" EntitySet="tb_Product" />
           </AssociationSet>
           <EntitySet Name="tb_File" EntityType="MADBModel.tb_File" />
+          <EntitySet Name="tb_Unit" EntityType="MADBModel.tb_Unit" />
         </EntityContainer>
         <EntityType Name="tb_Role_Prsn_Detail">
           <Key>
@@ -689,6 +698,13 @@
           <Property Name="FILE_NAME" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="FILE_EXTENSION" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="FILE_PATH" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_Unit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -910,6 +926,14 @@
                 <ScalarProperty Name="FILE_TYPE" ColumnName="FILE_TYPE" />
                 <ScalarProperty Name="ITEM_ID" ColumnName="ITEM_ID" />
                 <ScalarProperty Name="FILE_ID" ColumnName="FILE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Unit">
+            <EntityTypeMapping TypeName="MADBModel.tb_Unit">
+              <MappingFragment StoreEntitySet="tb_Unit">
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

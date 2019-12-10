@@ -70,6 +70,15 @@ namespace MyApp {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add New Product.
+        /// </summary>
+        public static string AddNewProduct {
+            get {
+                return ResourceManager.GetString("AddNewProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Address.
         /// </summary>
         public static string Address {
@@ -210,6 +219,15 @@ namespace MyApp {
         public static string English {
             get {
                 return ResourceManager.GetString("English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File Attachment.
+        /// </summary>
+        public static string FileAttachment {
+            get {
+                return ResourceManager.GetString("FileAttachment", resourceCulture);
             }
         }
         
@@ -385,6 +403,15 @@ namespace MyApp {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Price.
+        /// </summary>
+        public static string Price {
+            get {
+                return ResourceManager.GetString("Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Product.
         /// </summary>
         public static string Product {
@@ -480,6 +507,24 @@ namespace MyApp {
         public static string Supplier {
             get {
                 return ResourceManager.GetString("Supplier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string Type {
+            get {
+                return ResourceManager.GetString("Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit.
+        /// </summary>
+        public static string Unit {
+            get {
+                return ResourceManager.GetString("Unit", resourceCulture);
             }
         }
         

@@ -18,6 +18,7 @@ namespace MyApp.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.UnitList = MyApp.Functions.Functions.getUnitJSON();
             return View();
         }
     }

@@ -264,4 +264,19 @@
   <data name="ProductList" xml:space="preserve">
     <value>តារាងផលិតផល</value>
   </data>
+  <data name="Unit" xml:space="preserve">
+    <value>ខ្នាត</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>តម្លៃ</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>ប្រភេទ</value>
+  </data>
+  <data name="FileAttachment" xml:space="preserve">
+    <value>ឯកសារភ្ជាប់ជាមួយ</value>
+  </data>
+  <data name="AddNewProduct" xml:space="preserve">
+    <value>បង្កើតផលិតផលថ្មី</value>
+  </data>
 </root>

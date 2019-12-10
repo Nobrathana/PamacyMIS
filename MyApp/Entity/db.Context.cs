@@ -44,6 +44,7 @@ namespace MyApp.Entity
         public virtual DbSet<tb_Category> tb_Category { get; set; }
         public virtual DbSet<tb_Product> tb_Product { get; set; }
         public virtual DbSet<tb_File> tb_File { get; set; }
+        public virtual DbSet<tb_Unit> tb_Unit { get; set; }
     
         public virtual ObjectResult<string> pm_GetMessage(string msg_id, string lang_code)
         {
