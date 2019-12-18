@@ -11,7 +11,7 @@ namespace MyApp.Functions
         {
             using(var db = new MADBEntities())
             {
-                var count = (db.tb_User.Where(x => x.STATUS == true).ToList().Count + 1);
+                var count = db.tb_User.Where(x => x.STATUS == true).ToList().Count + 1;
                 string UserCount = count.ToString().PadLeft(6, '0');
                 string Code = $"MA-{UserCount}-{DateTime.Now.ToString("ddMMyy")}";
                 return Code;

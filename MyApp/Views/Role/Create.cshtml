@@ -6,6 +6,7 @@
     ViewBag.SubTitle = "";
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Active = 11;
+
 }
 
 @section styles{
@@ -52,28 +53,28 @@
                                 <td>@Resource.Edit</td>
                                 <td>@Resource.Delete</td>
                             </tr>
-                            @{ 
-                                foreach(var i in Functions.getRoleMasterList())
-                                {
-                                    <tr>
-                                        <td>
-                                            <label>
-                                                <input type="checkbox" class="minimal master" name="roles" value="@i.ROLENAME" /> @i.ROLE_LABEL
-                                            </label>
-                                        </td>
-                                        @{
-                                            if (i.SUB_ROLES.Count() > 0)
-                                            {
-                                                foreach (var x in i.SUB_ROLES)
-                                                {
-                                                    <td>
-                                                        <input type="checkbox" class="minimal" name="roles" value="@x" disabled />
-                                                    </td>
-                                                }
-                                            }
+                            @{
+                            foreach(var i in Functions.getRoleMasterList())
+                            {
+                            <tr>
+                                <td>
+                                    <label>
+                                        <input type="checkbox" class="minimal master" name="roles" value="@i.ROLENAME" /> @i.ROLE_LABEL
+                                    </label>
+                                </td>
+                                @{
+                                    if (i.SUB_ROLES.Count() > 0)
+                                    {
+                                        foreach (var x in i.SUB_ROLES)
+                                        {
+                                            <td>
+                                                <input type="checkbox" class="minimal" name="roles" value="@x" disabled />
+                                            </td>
                                         }
-                                    </tr>
+                                    }
                                 }
+                            </tr>
+                            }
                             }
 
                         </table>
