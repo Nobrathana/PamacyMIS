@@ -1,4 +1,5 @@
-﻿@model MyApp.Models.UserViewModels
+﻿
+@model MyApp.Models.UserViewModels
 @{
     ViewBag.Title = Resource.AddNewProduct;
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,113 +9,160 @@
 <style>
     .table-borderless tr, td, th {
         border: none !important;
-        vertical-align: middle!important;
+        vertical-align: middle !important;
     }
 
-    .callout-success{
-        margin-bottom: 0px!important;
+    .callout-success {
+        margin-bottom: 0px !important;
     }
 
-    .w-100{
-        width: 100%!important;
+    .w-100 {
+        width: 100% !important;
     }
 </style>
 
-        <!-- Custom Tabs -->
-        <div class="nav-tabs-custom">
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#tab_1" data-toggle="tab">@Resource.Product </a></li>
-                <li><a href="#tab_2" data-toggle="tab">@Resource.Unit @Resource.Price</a></li>
-                <li><a href="#tab_3" data-toggle="tab">@Resource.FileAttachment</a></li>
-                @*<li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Dropdown <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-                        <li role="presentation" class="divider"></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-                    </ul>
-                </li>*@
-                <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
-            </ul>
+<!-- Custom Tabs -->
+<div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab_1" data-toggle="tab">@Resource.Product </a></li>
+        <li><a href="#tab_2" data-toggle="tab">@Resource.Unit @Resource.Price</a></li>
+        <li><a href="#tab_3" data-toggle="tab">@Resource.FileAttachment</a></li>
+        @*<li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Dropdown <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                    <li role="presentation" class="divider"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                </ul>
+            </li>*@
+        <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
+    </ul>
 
 
-            <form class="form-horizontal">
-                <!-- Content -->
-                <div class="tab-content">
-                    <div class="tab-pane active" id="tab_1">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <!-- /.box-header -->
-                                <!-- form start -->
+    <form class="form-horizontal">
+        <!-- Content -->
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab_1">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- /.box-header -->
+                        <!-- form start -->
 
-                                <div class="box-body">
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">@Resource.Code</label>
-                                        <div class="col-sm-4">
-                                            <input type="email" class="form-control" id="inputEmail3" placeholder=@Resource.Code>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">@Resource.Name</label>
-                                        <div class="col-sm-9">
-                                            <input type="password" class="form-control" id="inputPassword3" placeholder=@Resource.Name >
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">@Resource.Type</label>
-                                        <div class="col-sm-4">
-                                            <input type="email" class="form-control" id="inputEmail3" placeholder=@Resource.Type >
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">@Resource.Description</label>
-                                        <div class="col-sm-9">
-                                            <textarea class="form-control" rows="4" placeholder=@Resource.Description ></textarea>
-                                        </div>
-                                    </div>
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">@Resource.Code</label>
+                                <div class="col-sm-4">
+                                    <input type="email" class="form-control" id="inputEmail3" placeholder=@Resource.Code>
                                 </div>
-                                <!-- /.box-body -->
-                                <div class="box-footer">
-                                    <button type="submit" class="btn btn-default">Cancel</button>
-                                    <button type="submit" class="btn btn-info pull-right">Sign in</button>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">@Resource.Name</label>
+                                <div class="col-sm-9">
+                                    <input type="password" class="form-control" id="inputPassword3" placeholder=@Resource.Name>
                                 </div>
-                                <!-- /.box-footer -->
-
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">@Resource.Type</label>
+                                <div class="col-sm-4">
+                                    <input type="email" class="form-control" id="inputEmail3" placeholder=@Resource.Type>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">@Resource.Description</label>
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" rows="4" placeholder=@Resource.Description></textarea>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- /.tab-pane -->
-                    <div class="tab-pane" id="tab_2">
-                        <div class="callout callout-success">
-                            <p id="callOutHeader">Set Price of Product by its unit.</p>
+                        <!-- /.box-body -->
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-default">Cancel</button>
+                            <button type="submit" class="btn btn-info pull-right">Sign in</button>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                               
-                             </div>
-                        </div>
-                    </div>
-                    <!-- /.tab-pane -->
-                    <div class="tab-pane" id="tab_3">
+                        <!-- /.box-footer -->
 
                     </div>
                 </div>
-            </form>
+            </div>
+            <!-- /.tab-pane -->
+            <div class="tab-pane" id="tab_2">
+                <div class="callout callout-success">
+                    <p id="callOutHeader">Set Price of Product by its unit.</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <table class="table table-borderless text-center">
+                            <thead>
+                                <tr>
+                                    <th>@Resource.N_o</th>
+                                    <th>@Resource.Unit</th>
+                                    <th></th>
+                                    <th>@Resource.Price</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1.</td>
+                                    <td>
+                                        <select class="form-control select2">
+                                            <option>1</option>
+                                            <option>2</option>
+                                        </select>
+                                    </td>
+                                    <td> x 1 </td>
+                                    <td><input type="text" class="form-control" /></td>
+                                    <td>
+                                        <button class="btn btn-flat">+</button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-flat">x</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1.</td>
+                                    <td>
+                                        <select class="form-control select2">
+                                            <option>1</option>
+                                            <option>2</option>
+                                        </select>
+                                    </td>
+                                    <td> x 1 </td>
+                                    <td><input type="text" class="form-control" /></td>
+                                    <td>
+                                        <button class="btn btn-flat">+</button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-flat">x</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- /.tab-pane -->
+            <div class="tab-pane" id="tab_3">
+
+            </div>
         </div>
+    </form>
+</div>
 
 
 <!-- Place these at the end of the page -->
 
 @section scripts{
-    
+
 
     <script type="text/javascript">
-        
-         
+
+
 
         $(document).ready(function () {
             $('.select2').select2();
@@ -137,6 +185,6 @@
         }
 
     </script>
-    
-    
-    }
+
+
+}
